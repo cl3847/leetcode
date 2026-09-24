@@ -1,6 +1,6 @@
 class Solution:
     def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:
-        h = list(zip(nums, range(len(nums))))
+        h = [(x, i) for i, x in enumerate(nums)]
         heapq.heapify(h)
 
         for _ in range(k):
