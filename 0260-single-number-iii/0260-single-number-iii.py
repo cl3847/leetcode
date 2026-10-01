@@ -6,17 +6,11 @@ class Solution:
 
         set_bit = x & -x
 
-        g1, g2 = [], []
+        res = [0, 0]
         for n in nums:
             if n & set_bit:
-                g1.append(n)
+                res[0] ^= n
             else:
-                g2.append(n)
-        
-        r1 = r2 = 0
-        for n in g1:
-            r1 ^= n
-        for n in g2:
-            r2 ^= n
-    
-        return [r1, r2]
+                res[1] ^= n
+
+        return res
