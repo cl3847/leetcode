@@ -6,7 +6,7 @@ class Solution:
         lo = 1
         hi = max(nums)
         while lo < hi:
-            mid = lo + (hi - lo) // 2
+            mid = (hi + lo) // 2
             if ok(mid):
                 hi = mid
             else:
