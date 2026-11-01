@@ -1,7 +1,7 @@
 class Solution:
     def minEatingSpeed(self, piles: list[int], h: int) -> int:
         def cond(k):
-            return sum((n + k - 1) // k for n in piles) <= h
+            return sum(ceil(n/k) for n in piles) <= h
 
         lo = 1
         hi = max(piles)
