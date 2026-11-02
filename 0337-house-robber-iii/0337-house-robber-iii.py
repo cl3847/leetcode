@@ -5,17 +5,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    def helper(self, root):
+        # [take this node, skip this node]
+        if root is None: return (0, 0)
+        left = self.helper(root.left)
+        right = self.helper(root.right)
+        return (
+            max(root.val + left[1] + right[1], left[0] + right[0]),
+            left[0] + right[0]
+        )
+
     def rob(self, root: TreeNode | None) -> int:
-        @cache
-        def helper(node, can_take):
-            if node is None:
-                return 0
-
-            totals = []
-            if can_take:
-                totals.append(helper(node.left, False) + helper(node.right, False) + node.val)
-            totals.append(helper(node.left, True) + helper(node.right, True))
-
-            return max(totals)
-
-        return helper(root, True)
+        return max(self.helper(root))
