@@ -7,7 +7,7 @@ class Solution:
             if target - n == 0:
                 res.append([n])
             elif target - n > 0:
-                sub = self.combinationSum2(candidates[i+1:], target - n)
+                sub = self.helper(candidates[i+1:], target - n)
                 res.extend([[n] + l for l in sub])
             seen.add(n)
         return res
