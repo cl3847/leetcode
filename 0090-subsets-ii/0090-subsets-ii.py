@@ -1,8 +1,5 @@
 class Solution:
     def subsetsWithDup(self, nums: list[int]) -> list[list[int]]:
-        nums.sort()
-        res = []
-
         def subsets_from(nums):
             if not nums:
                 return [[]]
@@ -20,7 +17,7 @@ class Solution:
                     res.append(pre + suf)
             return res
         
-        return subsets_from(nums)
+        return subsets_from(sorted(nums))
 
 
             
